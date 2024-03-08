@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../lib/hooks";
-import { fetchCoinData } from "../lib/slices/coinDataSlice";
+import { fetchCoinData } from "../lib/slices/coinListSlice";
 import PropTypes from "prop-types";
 
 interface CoinDataProviderProps {

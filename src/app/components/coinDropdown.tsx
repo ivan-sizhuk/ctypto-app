@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../lib/hooks";
-import { fetchCoinData } from "../../lib/slices/coinDataSlice";
-import { CoinData } from "../../lib/slices/coinDataSlice";
+import { fetchCoinData } from "../../lib/slices/coinListSlice";
+import { CoinData } from "../../utilities/CoinDataInterface";
 
 const CoinDropdown: React.FC = () => {
   const dispatch = useAppDispatch();

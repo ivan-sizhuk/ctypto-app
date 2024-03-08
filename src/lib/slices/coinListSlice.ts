@@ -1,22 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { CoinData } from "@/utilities/CoinDataInterface";
 
-export interface CoinData {
-  id: string;
-  symbol: string;
-  image: string;
-  thumb: string;
-  name: string;
-  current_price: number;
-  price_change_percentage_1h_in_currency: number;
-  price_change_percentage_24h_in_currency: number;
-  price_change_percentage_7d_in_currency: number;
-  total_volume: any;
-  circulating_supply: any;
-  total_supply: any;
-  market_cap_rank: any;
-  market_cap: any;
-}
-const formatNumber = (num: any) => {
+export const formatNumber = (num: any) => {
   const parsedNum = typeof num === "string" ? parseFloat(num) : num;
 
   if (!isNaN(parsedNum)) {
@@ -48,7 +33,7 @@ export const fetchCoinData = createAsyncThunk<CoinData[], void>("coinData/fetchC
     const updatedData = data.map((coin) => ({
       ...coin,
       market_cap: formatNumber(coin.market_cap),
-      total_volume: parseFloat(coin.total_volume),
+      total_volume: formatNumber(coin.total_volume),
       circulating_supply: formatNumber(parseFloat(coin.circulating_supply)),
       total_supply: formatNumber(parseFloat(coin.total_supply)),
     }));
